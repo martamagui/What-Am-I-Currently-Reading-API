@@ -1,10 +1,10 @@
-package com.mmag.What.I.Currently.Reading;
+package com.mmag.WhatImCurrentlyReading;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WhatICurrentlyReadingApplicationTests {
+class WhatImCurrentlyReadingApplicationTests {
 
 	@Test
 	void contextLoads() {

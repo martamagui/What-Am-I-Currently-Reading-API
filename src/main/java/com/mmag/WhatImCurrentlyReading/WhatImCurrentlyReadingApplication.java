@@ -1,13 +1,13 @@
-package com.mmag.What.I.Currently.Reading;
+package com.mmag.WhatImCurrentlyReading;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WhatICurrentlyReadingApplication {
+public class WhatImCurrentlyReadingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WhatICurrentlyReadingApplication.class, args);
+		SpringApplication.run(WhatImCurrentlyReadingApplication.class, args);
 	}
 
 }
