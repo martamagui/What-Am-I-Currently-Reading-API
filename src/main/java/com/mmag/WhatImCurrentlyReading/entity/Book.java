@@ -3,7 +3,6 @@ package com.mmag.WhatImCurrentlyReading.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Generated;
 
 @Data
 @Entity
@@ -24,4 +23,35 @@ public class Book {
     @Column(name = "book_saga")
     private String bookSaga;
 
+    public Long getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
+    }
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public Long getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
+    }
+
+    public String getBookSaga() {
+        return bookSaga;
+    }
+
+    public void setBookSaga(String bookSaga) {
+        this.bookSaga = bookSaga;
+    }
 }
