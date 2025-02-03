@@ -35,7 +35,6 @@ public class BookService {
         Example<Book> bookExample = Example.of(book, matcher);
         return bookRepository.findAll(bookExample);
     }
-
     //endregion Getters
 
     //region Setters

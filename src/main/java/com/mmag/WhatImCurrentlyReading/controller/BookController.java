@@ -2,6 +2,7 @@ package com.mmag.WhatImCurrentlyReading.controller;
 
 import com.mmag.WhatImCurrentlyReading.entity.Book;
 import com.mmag.WhatImCurrentlyReading.service.BookService;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,15 +36,19 @@ public class BookController {
 
     //region POST
     @PostMapping
-    public void saveBook(@RequestBody Book book) {
-        bookService.saveOrUpdateBook(book);
+    public void saveBook(@RequestBody Book book) throws BadRequestException {
+        if (book.getAuthor().getId() != null) {
+            bookService.saveOrUpdateBook(book);
+        } else {
+            throw new BadRequestException("Missing author");
+        }
     }
     //endregion POST
 
 
     //region DELETE
     @DeleteMapping("/{bookId}")
-    public void saveBook(@PathVariable("bookId") Long bookId) {
+    public void deleteBook(@PathVariable("bookId") Long bookId) {
         bookService.deleteBookById(bookId);
     }
     //endregion DELETE

@@ -11,17 +11,19 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_id")
+    @Column(name = "id")
     private Long bookId;
 
     @Column(name = "book_title")
     private String bookTitle;
 
-    @Column(name = "author_id")
-    private Long authorId;
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author author;
 
     @Column(name = "book_saga")
     private String bookSaga;
+
 
     public Long getBookId() {
         return bookId;
@@ -39,19 +41,19 @@ public class Book {
         this.bookTitle = bookTitle;
     }
 
-    public Long getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(Long authorId) {
-        this.authorId = authorId;
-    }
-
     public String getBookSaga() {
         return bookSaga;
     }
 
     public void setBookSaga(String bookSaga) {
         this.bookSaga = bookSaga;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }
