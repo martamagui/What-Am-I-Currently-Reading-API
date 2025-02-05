@@ -11,7 +11,7 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "book_id")
     private Long bookId;
 
     @Column(name = "book_title")
@@ -21,8 +21,9 @@ public class Book {
     @JoinColumn(name = "author_id")
     private Author author;
 
-    @Column(name = "book_saga")
-    private String bookSaga;
+    @ManyToOne
+    @JoinColumn(name = "saga_id")
+    private Saga saga;
 
 
     public Long getBookId() {
@@ -41,19 +42,19 @@ public class Book {
         this.bookTitle = bookTitle;
     }
 
-    public String getBookSaga() {
-        return bookSaga;
-    }
-
-    public void setBookSaga(String bookSaga) {
-        this.bookSaga = bookSaga;
-    }
-
     public Author getAuthor() {
         return author;
     }
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public Saga getSaga() {
+        return saga;
+    }
+
+    public void setSaga(Saga saga) {
+        this.saga = saga;
     }
 }
