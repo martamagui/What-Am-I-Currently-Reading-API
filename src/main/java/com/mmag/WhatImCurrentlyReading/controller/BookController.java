@@ -27,9 +27,9 @@ public class BookController {
         return bookService.getBookById(bookId);
     }
 
-    @GetMapping("/saga/{sagaName}")
-    public List<Book> getBookBySaga(@PathVariable("sagaName") String sagaName) {
-        return bookService.getBooksBySaga(sagaName);
+    @GetMapping()
+    public List<Book> getBooksByTitle(@RequestParam(name = "title") String sagaName) {
+        return bookService.getBooksByTitle(sagaName);
     }
     //endregion GETS
 

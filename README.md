@@ -14,7 +14,8 @@ Daily Reads Report API is a MVC Spring Boot-based RESTful API that allows users 
 ## :construction: Roadmap :construction:
 Note: (Project still in progress)
 
-- [ ] Set up DB connection
+- [x] Set up DB connection
 - [ ] Define User endpoints
 - [ ] Define Books endpoints
 - [ ] Define reading progress endpoints
+- [ ] Add test

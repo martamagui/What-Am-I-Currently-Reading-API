@@ -25,13 +25,13 @@ public class BookService {
         return bookRepository.findById(bookId);
     }
 
-    public List<Book> getBooksBySaga(String saga) {
+    public List<Book> getBooksByTitle(String bookTitle) {
         Book book = new Book();
-        book.setBookSaga(saga);
+        book.setBookTitle(bookTitle);
 
         ExampleMatcher matcher = ExampleMatcher.matching()
-                .withMatcher("book_saga", ExampleMatcher.GenericPropertyMatcher::ignoreCase)
-                .withStringMatcher(ExampleMatcher.StringMatcher.DEFAULT);
+                .withMatcher("book_title", ExampleMatcher.GenericPropertyMatcher::ignoreCase)
+                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
         Example<Book> bookExample = Example.of(book, matcher);
         return bookRepository.findAll(bookExample);
     }

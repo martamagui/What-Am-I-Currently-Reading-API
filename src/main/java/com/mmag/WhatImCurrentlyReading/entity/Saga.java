@@ -8,11 +8,12 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "sagas")
+@Table(name = "saga")
 public class Saga {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "saga_id")
     private Long id;
 
     @Column(nullable = false)
