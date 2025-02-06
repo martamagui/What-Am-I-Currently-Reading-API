@@ -28,9 +28,9 @@ public class ReadingProgress {
     @Column(nullable = false)
     private int currentPage;
 
-    @UpdateTimestamp
+
     @Column(nullable = false)
-    private LocalDateTime lastUpdated;
+    private String lastUpdated;
 
     public Long getId() {
         return id;
@@ -40,11 +40,11 @@ public class ReadingProgress {
         this.id = id;
     }
 
-    public LocalDateTime getLastUpdated() {
+    public String getLastUpdated() {
         return lastUpdated;
     }
 
-    public void setLastUpdated(LocalDateTime lastUpdated) {
+    public void setLastUpdated(String lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 

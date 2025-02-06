@@ -27,7 +27,7 @@ public class BookController {
         return bookService.getBookById(bookId);
     }
 
-    @GetMapping()
+    @GetMapping("/search")
     public List<Book> getBooksByTitle(@RequestParam(name = "title") String sagaName) {
         return bookService.getBooksByTitle(sagaName);
     }
