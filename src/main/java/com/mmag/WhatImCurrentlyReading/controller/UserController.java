@@ -1,6 +1,5 @@
 package com.mmag.WhatImCurrentlyReading.controller;
 
-import com.mmag.WhatImCurrentlyReading.entity.Saga;
 import com.mmag.WhatImCurrentlyReading.entity.User;
 import com.mmag.WhatImCurrentlyReading.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +29,7 @@ public class UserController {
 
 
     //region POST
-    @PostMapping(path = "/signUp")
-    public void signUp(User user) {
-        userService.saveOrUpdateUser(user);
-    }
-
-    //TODO: login and change password
+    //TODO follow and unfollow user
 
     //endregion POST
 }
