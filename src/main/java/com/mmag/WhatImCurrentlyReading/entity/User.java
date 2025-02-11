@@ -9,7 +9,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.security.cert.CertPathBuilder;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -37,6 +36,9 @@ public class User implements UserDetails {
     private String email;
     @Column(name = "password", nullable = false)
     private String password;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;
     @ManyToMany
     @JoinTable(
             name = "user_followers",
@@ -50,7 +52,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return  List.of(new SimpleGrantedAuthority((role.name())));
     }
 
     public String getPassword() {
@@ -81,5 +83,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return UserDetails.super.isEnabled();
     }
-
 }

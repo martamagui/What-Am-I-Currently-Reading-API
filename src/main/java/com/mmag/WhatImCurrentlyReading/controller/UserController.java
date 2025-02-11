@@ -17,14 +17,7 @@ public class UserController {
     UserService userService;
 
     //region GET
-    @RequestMapping
-    public Optional<User> getUserById(Long id) {
-        Optional<User> userOptional = userService.getUserById(id);
-        User user = userOptional.get();
-        user.setPassword(null);
-        user.setEmail(null);
-        return Optional.of(user);
-    }
+
     //enregion GET
 
 

@@ -24,37 +24,4 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "saga_id")
     private Saga saga;
-
-
-    public Long getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(Long bookId) {
-        this.bookId = bookId;
-    }
-
-    public String getBookTitle() {
-        return bookTitle;
-    }
-
-    public void setBookTitle(String bookTitle) {
-        this.bookTitle = bookTitle;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
-    public Saga getSaga() {
-        return saga;
-    }
-
-    public void setSaga(Saga saga) {
-        this.saga = saga;
-    }
 }
