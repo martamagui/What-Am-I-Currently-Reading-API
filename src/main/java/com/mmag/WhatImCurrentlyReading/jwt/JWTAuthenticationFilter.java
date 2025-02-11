@@ -1,5 +1,6 @@
 package com.mmag.WhatImCurrentlyReading.jwt;
 
+import com.mmag.WhatImCurrentlyReading.service.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private JWTUtil jwtUtil;
     @Autowired
-    private UserDetailsService userDetailsService;
+    private UserService userDetailsService;
 
 
     @Override

@@ -49,7 +49,9 @@ public class JWTUtil {
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
-        return (username.equals(userDetails.getUsername()) && !extractExpiration(token).before(new Date()));
+        boolean isSameUserName = username.equals(userDetails.getUsername());
+        boolean isExpired = extractExpiration(token).before(new Date());
+        return ( isSameUserName && !isExpired);
     }
 
 }

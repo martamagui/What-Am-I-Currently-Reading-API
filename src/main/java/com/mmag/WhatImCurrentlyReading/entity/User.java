@@ -30,7 +30,7 @@ public class User implements UserDetails {
     private Long id;
     @Column(name = "user_nick_name", unique = true, nullable = false)
     private String userNickName;
-    @Column(name = "user_real_name", nullable = false)
+    @Column(name = "user_name", nullable = false)
     private String userName;
     @Column(name = "email", unique = true, nullable = false)
     private String email;
@@ -39,15 +39,6 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
-    @ManyToMany
-    @JoinTable(
-            name = "user_followers",
-            joinColumns = @JoinColumn(name = "follower_id"),
-            inverseJoinColumns = @JoinColumn(name = "following_id")
-    )
-    private Set<User> following = new HashSet<>();
-    @ManyToMany(mappedBy = "following")
-    private Set<User> followers = new HashSet<>();
 
 
     @Override
@@ -55,13 +46,9 @@ public class User implements UserDetails {
         return  List.of(new SimpleGrantedAuthority((role.name())));
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     @Override
     public String getUsername() {
-        return userNickName;
+        return this.userName;
     }
 
     @Override

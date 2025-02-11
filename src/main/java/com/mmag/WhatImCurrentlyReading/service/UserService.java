@@ -35,8 +35,9 @@ public class UserService implements UserDetailsService {
 
     //region Get
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepository.findByEmail(email)
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+
+        return userRepository.findByUserName(userName)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
     //endregion Get
@@ -54,9 +55,8 @@ public class UserService implements UserDetailsService {
                 .password(password)
                 .role(Role.USER)
                 .build();
-
         userRepository.save(user);
-        String token = jwtUtil.generateToken(request.getEmail());
+        String token = jwtUtil.generateToken(request.getUserName());
 
         return new AuthResponse(token);
     }
@@ -64,7 +64,7 @@ public class UserService implements UserDetailsService {
     public AuthResponse login(LoginRequest request) {
         UserDetails user = userRepository.findByEmail(request.getEmail()).orElseThrow();
         if (passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-            String token = jwtUtil.generateToken(request.getEmail());
+            String token = jwtUtil.generateToken(user.getUsername());
             return new AuthResponse(token);
         } else {
             throw new RuntimeException("Unauthorized");
