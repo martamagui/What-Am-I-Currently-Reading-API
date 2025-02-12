@@ -1,4 +1,4 @@
-package com.mmag.WhatImCurrentlyReading.controller.model.response;
+package com.mmag.WhatImCurrentlyReading.controller.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthResponse {
-    String token;
+public class FollowUnfollowUserRequest {
+    Long userToFollowUnfollow;
 }

@@ -1,5 +1,4 @@
 package com.mmag.WhatImCurrentlyReading.controller.model.response;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +8,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthResponse {
-    String token;
+public class DefaultResponse {
+    String message;
 }
