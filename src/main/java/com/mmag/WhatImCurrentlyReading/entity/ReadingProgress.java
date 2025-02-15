@@ -2,10 +2,6 @@ package com.mmag.WhatImCurrentlyReading.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.LocalDateTime;
-
 
 @Data
 @Entity
@@ -25,11 +21,16 @@ public class ReadingProgress {
     @JoinColumn(name = "book_id", nullable = false)
     private Book book;
 
-    @Column(nullable = false)
+    @Column(name = "is_book_finished", nullable = false)
+    private Boolean isBookFinished;
+
+    @Column(name = "current_page", nullable = false)
     private int currentPage;
 
+    @Column(name = "comment")
+    private String comment;
 
-    @Column(nullable = false)
+    @Column(name = "last_update", nullable = false)
     private String lastUpdated;
 
 }
